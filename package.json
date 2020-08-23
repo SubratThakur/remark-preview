@@ -1,0 +1,116 @@
+{
+	"name": "remark-preview",
+	"displayName": "Remark Preview",
+	"description": "Preview your markdown file in VSCode as HTML using Remark processor.",
+	"version": "1.0.0",
+	"icon": "icon.png",
+	"publisher": "Subrat Thakur",
+	"engines": {
+		"vscode": "^1.35.0"
+	},
+	"galleryBanner": {
+		"color": "#eee",
+		"theme": "light"
+	},
+	"categories": [
+		"Other"
+	],
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"activationEvents": [
+		"onLanguage:markdown"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Remark Preview",
+			"order": 20,
+			"properties": {
+				"remark.preview.showPreviewOptionInMenuBar": {
+					"type": "boolean",
+					"default": false,
+					"description": "Show 'Preview to Side' option in Menu bar; if false then in Status bar"
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "remark.sidePreview",
+				"title": "Show side preview",
+				"category": "menubar",
+				"icon": {
+					"light": "./assets/PreviewOnRightPane_16x.svg",
+					"dark": "./assets/PreviewOnRightPane_16x_dark.svg"
+				}
+			},
+			{
+				"command": "remark.fullPreview",
+				"title": "Show full preview",
+				"category": "menubar",
+				"icon": {
+					"light": "./assets/Preview.svg",
+					"dark": "./assets/Preview_inverse.svg"
+				}
+			}
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"command": "remark.sidePreview",
+					"when": "editorLangId == markdown && config.remark.preview.showPreviewOptionInMenuBar",
+					"alt": "remark.fullPreview",
+					"group": "navigation"
+				}
+			]
+		},
+		"keybindings": [
+			{
+				"command": "remark.sidePreview",
+				"key": "ctrl+q s",
+				"mac": "cmd+q s",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "remark.fullPreview",
+				"key": "ctrl+q f",
+				"mac": "cmd+q f",
+				"when": "editorTextFocus"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "rm -rf out && tsc -p ./ && cp -a assets/. out/assets && npm run build-preview",
+		"build-preview": "./node_modules/.bin/webpack-cli",
+		"lint": "eslint src --ext ts",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"test": "node ./out/test/runTest.js"
+	},
+	"dependencies": {
+		"remark": "12.0.1",
+		"path": "^0.12.7",
+		"lodash.throttle": "4.1.1",
+		"remark-admonitions": "1.2.1",
+		"remark-html": "12.0.0",
+		"remark-frontmatter": "^2.0.0",
+		"to-vfile": "^6.1.0",
+		"webpack": "4.19.0",
+		"webpack-cli": "3.1.0"
+	},
+	"devDependencies": {
+		"@types/vscode": "1.48.0",
+		"@types/mocha": "^2.2.32",
+		"@types/node": "^6.0.40",
+		"@types/lodash.throttle": "4.1.4",
+		"ts-loader": "4.0.1",
+		"eslint": "^5.13.0",
+		"typescript": "3.9.7",
+		"tslib": "^1.9.3",
+		"vscode-test": "1.4.0"
+	},
+	"__metadata": {}
+}
