@@ -19,18 +19,6 @@ export const htmlTemplate = (context, panel, html, fileName) => {
                 <link rel="stylesheet" type="text/css" href="${getDynamicContentPath(context, panel, 'assets/css/admonitions.css')}">
             </head>
             <body class="code-line" style="background-color: white;">
-                <header class="slds-builder-header" style="position: fixed;width: 100%;top: 0;left: 0;z-index: 100;">
-                    <div class="slds-builder-header__item" style="width: 1000px; margin: 0 auto;">
-                        <div class="slds-builder-header__item-label slds-media slds-media_center">
-                            <div class="slds-media__body">
-                                <h1>
-                                    <a href="" class="slds-page-header__title slds-truncate" title="CCX Documentation"
-                                        style="color: white">CCX Documentation</a>
-                                </h1>
-                            </div>
-                        </div>
-                    </div>
-                </header>
                 <main class="content home">
                     <section style="padding-top: 50px;">
                         <body data-gr-c-s-loaded="true">

@@ -4,9 +4,9 @@
 	"description": "Preview your markdown file in VSCode as HTML using Remark processor.",
 	"version": "1.0.0",
 	"icon": "icon.png",
-	"publisher": "Subrat Thakur",
+	"publisher": "SubratThakur",
 	"engines": {
-		"vscode": "^1.35.0"
+		"vscode": "^1.48.0"
 	},
 	"galleryBanner": {
 		"color": "#eee",
