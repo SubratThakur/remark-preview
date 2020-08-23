@@ -29,6 +29,11 @@
 			"title": "Remark Preview",
 			"order": 20,
 			"properties": {
+				"remark.preview.scrollPreviewWithEditor": {
+					"type": "boolean",
+					"default": true,
+					"description": "Scroll preview window when you scroll Editor"
+				},
 				"remark.preview.showPreviewOptionInMenuBar": {
 					"type": "boolean",
 					"default": false,

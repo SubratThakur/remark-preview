@@ -15,7 +15,7 @@ export default class Preview {
     line: number;
     disableWebViewStyling: boolean;
     context: vscode.ExtensionContext;
-    remarkConfig: any;
+    remarkViewerConfig: any;
     private _resource: vscode.Uri;
     private readonly disposables: vscode.Disposable[] = [];
     private _disposed: boolean = false;
@@ -29,6 +29,7 @@ export default class Preview {
     };
 
     async handleTextDocumentChange() {
+        this.remarkViewerConfig = vscode.workspace.getConfiguration('remark');
         if (vscode.window.activeTextEditor && this.panel && this.panel !== undefined) {
             let currentHTMLtext = vscode.window.activeTextEditor.document.getText();
             const filePaths = vscode.window.activeTextEditor.document.fileName.split('/');
@@ -38,7 +39,7 @@ export default class Preview {
             let currentHTMLContent = await md.process(currentHTMLtext);
             this._resource = vscode.window.activeTextEditor.document.uri;
             this.panel.webview.html = this.getWebviewContent(currentHTMLContent.contents, fileName);
-            if (vscode.window.activeTextEditor.document.languageId === 'markdown') {
+            if (vscode.window.activeTextEditor.document.languageId === 'markdown' && this.remarkViewerConfig.get('preview.scrollPreviewWithEditor')) {
                 this.postMessage({
                     type: 'scroll',
                     line: vscode.window.activeTextEditor.visibleRanges,
@@ -116,7 +117,8 @@ export default class Preview {
             vscode.window.onDidChangeActiveTextEditor(await this.handleTextDocumentChange.bind(this));
 
             vscode.window.onDidChangeTextEditorVisibleRanges(({ textEditor, visibleRanges }) => {
-                if (textEditor.document.languageId === 'markdown') {
+                this.remarkViewerConfig = vscode.workspace.getConfiguration('remark');
+                if (textEditor.document.languageId === 'markdown' && this.remarkViewerConfig.get('preview.scrollPreviewWithEditor')) {
                     this.postMessage({
                         type: 'scroll',
                         line: visibleRanges,

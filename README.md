@@ -21,9 +21,11 @@ Key Bindings:
 
 Configuration:
 
-"remark.preview.showPreviewOptionInMenuBar": false
+"remark.preview.showPreviewOptionInMenuBar": false,
+"remark.preview.scrollPreviewWithEditor": true,
 
-> if you change it true then the preview button will be shifted to Menu bar
+> If you change it true then the preview button will be shifted to Menu bar.
+> `remark.preview.scrollPreviewWithEditor` is to enable / disable sync scroll.
 
 Just press the same key when you want to go back to the original view.
 
