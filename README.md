@@ -2,6 +2,8 @@
 
 A previewer of Markdown, which internally uses [remark](https://github.com/remarkjs/remark) processor. By default, VSCode uses [markdown-it](https://github.com/markdown-it/markdown-it) to process the markdown.
 
+![Preview](https://github.com/SubratThakur/remark-preview/blob/master/media/main.gif?raw=true)
+
 # README
 
 An extension to preview Markdown using remark processor, with basic slds style.
