@@ -1,4 +1,4 @@
-# preview-vscode
+# remark-preview
 
 A previewer of Markdown, which internally uses [remark](https://github.com/remarkjs/remark) processor. By default, VSCode uses [markdown-it](https://github.com/markdown-it/markdown-it) to process the markdown.
 

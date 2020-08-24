@@ -20,7 +20,7 @@ export const htmlTemplate = (context, panel, html, fileName) => {
             </head>
             <body class="code-line" style="background-color: white;">
                 <main class="content home">
-                    <section style="padding-top: 50px;">
+                    <section>
                         <body data-gr-c-s-loaded="true">
                             <div class="slds-p-around--small slds-container--small">
                                 <article>

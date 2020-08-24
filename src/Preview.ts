@@ -30,7 +30,7 @@ export default class Preview {
 
     async handleTextDocumentChange() {
         this.remarkViewerConfig = vscode.workspace.getConfiguration('remark');
-        if (vscode.window.activeTextEditor && this.panel && this.panel !== undefined) {
+        if (vscode.window.activeTextEditor && this.checkDocumentIsMarkdown(true) && this.panel && this.panel !== undefined) {
             let currentHTMLtext = vscode.window.activeTextEditor.document.getText();
             const filePaths = vscode.window.activeTextEditor.document.fileName.split('/');
             const fileName = filePaths[filePaths.length - 1]

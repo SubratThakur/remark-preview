@@ -2,7 +2,7 @@
 	"name": "remark-preview",
 	"displayName": "Remark Preview",
 	"description": "Preview your markdown file in VSCode as HTML using Remark processor.",
-	"version": "1.0.0",
+	"version": "1.0.2",
 	"icon": "icon.png",
 	"publisher": "SubratThakur",
 	"engines": {
@@ -15,10 +15,14 @@
 	"categories": [
 		"Other"
 	],
+	"bugs": {
+		"url": "https://github.com/SubratThakur/remark-preview/issues"
+	},
 	"repository": {
 		"type": "git",
-		"url": ""
+		"url": "https://github.com/SubratThakur/remark-preview"
 	},
+	"license": "MIT",
 	"activationEvents": [
 		"onLanguage:markdown"
 	],
